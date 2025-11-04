@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Instalación - Cedros Nahuizalqueños</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #D2691E;
+            padding-bottom: 10px;
+        }
+        
+        .step {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #8B4513;
+            border-radius: 5px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #8B4513;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .file-tree {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .file-tree .folder {
+            color: #ffd700;
+        }
+        
+        .file-tree .file {
+            color: #98c379;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .alert strong {
+            color: #856404;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .success strong {
+            color: #155724;
+        }
+        
+        .code {
+            background: #f4f4f4;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #8B4513;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .file-tree {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🪵 Guía de Instalación Rápida</h1>
+            <p>Sitio Web - Cedros Nahuizalqueños</p>
+        </div>
+
+        <div class="card">
+            <h2>📦 Archivos Descargados</h2>
+            <p>Has descargado todos los archivos necesarios para el sitio web. Ahora solo necesitas organizarlos correctamente.</p>
+            
+            <div class="alert">
+                <strong>📌 Importante:</strong> Asegúrate de tener todos los archivos antes de comenzar.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📁 Estructura de Carpetas</h2>
+            <p>Organiza tus archivos de la siguiente manera:</p>
+            
+            <div class="file-tree">
+<span class="folder">📁 cedros-nahuizalquenos/</span>
+  ├── <span class="file">📄 index.html</span>
+  ├── <span class="file">📄 galeria.html</span>
+  ├── <span class="file">📄 creadores.html</span>
+  ├── <span class="file">📄 contacto.html</span>
+  ├── <span class="file">📄 README.md</span>
+  │
+  ├── <span class="folder">📁 css/</span>
+  │   └── <span class="file">📄 styles.css</span>
+  │
+  ├── <span class="folder">📁 js/</span>
+  │   └── <span class="file">📄 script.js</span>
+  │
+  └── <span class="folder">📁 images/</span> <em>(⚠️ Debes crear esta carpeta)</em>
+      ├── <span class="folder">📁 productos/</span>
+      ├── <span class="folder">📁 equipo/</span>
+      └── <span class="folder">📁 otros/</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Pasos de Instalación</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Crear carpeta principal</strong>
+                <p>Crea una carpeta llamada <span class="code">cedros-nahuizalquenos</span> en tu computadora.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Extraer archivos</strong>
+                <p>Extrae todos los archivos del ZIP descargado en esta carpeta.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Verificar estructura</strong>
+                <p>Asegúrate de que las carpetas <span class="code">css</span> y <span class="code">js</span> estén en el mismo nivel que los archivos HTML.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Crear carpeta de imágenes</strong>
+                <p>Crea la carpeta <span class="code">images</span> y sus subcarpetas: <span class="code">productos</span>, <span class="code">equipo</span>, <span class="code">otros</span>.</p>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Abrir el sitio</strong>
+                <p>Doble clic en <span class="code">index.html</span> para abrir el sitio en tu navegador.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✨ Personalizaciones Necesarias</h2>
+            
+            <div class="alert">
+                <strong>⚠️ ¡MUY IMPORTANTE!</strong> Los siguientes elementos son PLACEHOLDERS que DEBES reemplazar:
+            </div>
+
+            <div class="step">
+                <strong>📸 Imágenes de Productos</strong>
+                <p>Las imágenes en la galería son placeholders. Necesitas:</p>
+                <ul style="margin-top: 10px;">
+                    <li>Fotografías reales de los comedores de Cedros Nahuizalqueños</li>
+                    <li>Mínimo 12 imágenes de alta calidad</li>
+                    <li>Formato: JPG o PNG (optimizadas, máx. 500KB cada una)</li>
+                    <li>Colocarlas en: <span class="code">images/productos/</span></li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <strong>👥 Fotos del Equipo</strong>
+                <p>Las fotos en la página "Creadores" son placeholders. Necesitas:</p>
+                <ul style="margin-top: 10px;">
+                    <li>4 fotografías de los miembros del equipo</li>
+                    <li>Preferiblemente formato cuadrado (500x500px)</li>
+                    <li>Fondo neutro para profesionalismo</li>
+                    <li>Colocarlas en: <span class="code">images/equipo/</span></li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <strong>📞 Información de Contacto</strong>
+                <p>Actualiza en TODOS los archivos HTML:</p>
+                <ul style="margin-top: 10px;">
+                    <li>Teléfono: <span class="code">+503 XXXX-XXXX</span> → Número real</li>
+                    <li>Email: <span class="code">info@cedrosnahuizalquenos.com</span> → Email real</li>
+                    <li>Enlaces de redes sociales (Facebook, Instagram, WhatsApp)</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <strong>🗺️ Mapa de Ubicación</strong>
+                <p>En <span class="code">contacto.html</span>, agrega un mapa real:</p>
+                <ul style="margin-top: 10px;">
+                    <li>Ve a Google Maps y busca la ubicación</li>
+                    <li>Haz clic en "Compartir" → "Insertar un mapa"</li>
+                    <li>Copia el código iframe</li>
+                    <li>Reemplaza el placeholder en contacto.html</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✅ Checklist de Verificación</h2>
+            <p>Antes de entregar el proyecto, verifica que:</p>
+            
+            <ul class="checklist">
+                <li>Todos los archivos estén en las carpetas correctas</li>
+                <li>Las imágenes de productos sean reales (no placeholders)</li>
+                <li>Las fotos del equipo estén actualizadas</li>
+                <li>La información de contacto esté completa</li>
+                <li>El mapa de Google Maps funcione</li>
+                <li>El formulario de contacto valide correctamente</li>
+                <li>Los filtros de galería funcionen bien</li>
+                <li>El sitio sea responsive (probado en móvil, tablet, PC)</li>
+                <li>Todos los enlaces de navegación funcionen</li>
+                <li>No haya errores en la consola del navegador</li>
+                <li>Se haya probado en Chrome, Firefox y Safari</li>
+                <li>El README.md esté actualizado con información relevante</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🎨 Recomendaciones de Diseño</h2>
+            
+            <div class="step">
+                <strong>Imágenes de Productos</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Usa fotos con buena iluminación</li>
+                    <li>Fondo neutro o que resalte el producto</li>
+                    <li>Muestra el producto desde diferentes ángulos</li>
+                    <li>Mantén un estilo consistente en todas las fotos</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <strong>Optimización</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Comprime las imágenes antes de subirlas (usa tinypng.com)</li>
+                    <li>Mantén los nombres de archivo descriptivos: <span class="code">comedor-4-sillas-cafe.jpg</span></li>
+                    <li>Usa formatos web optimizados (JPG para fotos, PNG para logos)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🌐 Cómo Abrir el Sitio</h2>
+            
+            <div class="step">
+                <strong>Método 1: Directo en el navegador</strong>
+                <p>Doble clic en <span class="code">index.html</span> y se abrirá en tu navegador predeterminado.</p>
+            </div>
+
+            <div class="step">
+                <strong>Método 2: Con Live Server (VS Code)</strong>
+                <p>Si usas Visual Studio Code:</p>
+                <ol style="margin-top: 10px;">
+                    <li>Instala la extensión "Live Server"</li>
+                    <li>Click derecho en <span class="code">index.html</span></li>
+                    <li>Selecciona "Open with Live Server"</li>
+                </ol>
+            </div>
+
+            <div class="success" style="margin-top: 20px;">
+                <strong>✅ Ventaja:</strong> Live Server recarga automáticamente cuando guardas cambios.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>❓ Preguntas Frecuentes</h2>
+            
+            <div class="step">
+                <strong>¿Por qué no se ven los estilos?</strong>
+                <p>Verifica que la carpeta <span class="code">css</span> esté al mismo nivel que los archivos HTML.</p>
+            </div>
+
+            <div class="step">
+                <strong>¿El formulario envía datos?</strong>
+                <p>Actualmente solo valida. Para enviar datos reales necesitas configurar un backend (PHP, Node.js, etc.).</p>
+            </div>
+
+            <div class="step">
+                <strong>¿Puedo cambiar los colores?</strong>
+                <p>Sí, edita las variables CSS en <span class="code">css/styles.css</span> al inicio del archivo.</p>
+            </div>
+
+            <div class="step">
+                <strong>¿Cómo agrego más productos?</strong>
+                <p>Copia una tarjeta existente en <span class="code">galeria.html</span> y modifica el contenido.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📚 Recursos Adicionales</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 10px; background: #f9f9f9; margin-bottom: 5px; border-radius: 5px;">
+                    🔗 <strong>Bootstrap:</strong> <a href="https://getbootstrap.com/docs/5.3/" target="_blank">getbootstrap.com/docs/5.3</a>
+                </li>
+                <li style="padding: 10px; background: #f9f9f9; margin-bottom: 5px; border-radius: 5px;">
+                    🔗 <strong>Font Awesome:</strong> <a href="https://fontawesome.com/icons" target="_blank">fontawesome.com/icons</a>
+                </li>
+                <li style="padding: 10px; background: #f9f9f9; margin-bottom: 5px; border-radius: 5px;">
+                    🔗 <strong>Google Maps Embed:</strong> <a href="https://www.google.com/maps" target="_blank">google.com/maps</a>
+                </li>
+                <li style="padding: 10px; background: #f9f9f9; margin-bottom: 5px; border-radius: 5px;">
+                    🔗 <strong>Optimizador de Imágenes:</strong> <a href="https://tinypng.com" target="_blank">tinypng.com</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <h3 style="color: #8B4513; margin-bottom: 10px;">🎉 ¡Listo para Usar!</h3>
+            <p>Tu sitio web está completo. Solo necesitas personalizar las imágenes y la información de contacto.</p>
+            <p style="margin-top: 20px; color: #999; font-size: 0.9rem;">
+                Desarrollado por: Diego Castillo, Adriana Fuentes, Kevin Grande, Michelle Zelada<br>
+                Universidad de El Salvador - Comercio Electrónico T.E.D - 2025
+            </p>
+        </div>
+    </div>
+</body>
+</html>

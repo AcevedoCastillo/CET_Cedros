@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Seguro - Cedros Nahuizalqueños</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --paypal-blue: #0070ba;
+            --paypal-dark-blue: #003087;
+            --paypal-light-blue: #009cde;
+        }
+
+        .paypal-header {
+            background: linear-gradient(135deg, var(--paypal-blue) 0%, var(--paypal-dark-blue) 100%);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .paypal-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .payment-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .payment-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .product-summary {
+            background: #f7f7f7;
+            padding: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .payment-form {
+            padding: 2rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--paypal-blue);
+            box-shadow: 0 0 0 0.2rem rgba(0, 112, 186, 0.25);
+        }
+
+        .btn-paypal {
+            background: linear-gradient(135deg, var(--paypal-blue) 0%, var(--paypal-light-blue) 100%);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-paypal:hover {
+            background: linear-gradient(135deg, var(--paypal-dark-blue) 0%, var(--paypal-blue) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 112, 186, 0.3);
+        }
+
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-overlay.show {
+            display: flex;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid var(--paypal-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success Animation */
+        .success-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-overlay.show {
+            display: flex;
+        }
+
+        .success-content {
+            text-align: center;
+            color: white;
+            animation: successPop 0.5s ease-out;
+        }
+
+        .success-checkmark {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: checkmarkPop 0.5s ease-out 0.3s both;
+        }
+
+        .success-checkmark i {
+            font-size: 4rem;
+            color: #28a745;
+            animation: checkmarkDraw 0.5s ease-out 0.5s both;
+        }
+
+        @keyframes successPop {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes checkmarkPop {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes checkmarkDraw {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            position: absolute;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .price-breakdown {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--paypal-blue);
+        }
+    </style>
+</head>
+<body>
+    <!-- PayPal Header -->
+    <div class="paypal-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="paypal-logo">
+                    <i class="fab fa-paypal me-2"></i>PayPal
+                </div>
+                <div class="text-white">
+                    <i class="fas fa-lock me-2"></i>Pago Seguro
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Container -->
+    <div class="payment-container">
+        <div class="payment-card">
+            <!-- Product Summary -->
+            <div class="product-summary">
+                <h4 class="fw-bold mb-3">Resumen de tu Pedido</h4>
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h5 class="mb-1" id="productName">Comedor 4 Sillas</h5>
+                        <p class="text-muted small mb-0">Cedros Nahuizalqueños</p>
+                        <p class="text-muted small mb-0">Mueble artesanal de madera</p>
+                    </div>
+                    <div class="text-end">
+                        <h4 class="text-primary fw-bold mb-0">$<span id="productPrice">395</span>.00</h4>
+                    </div>
+                </div>
+
+                <div class="price-breakdown">
+                    <div class="price-row">
+                        <span>Subtotal:</span>
+                        <span>$<span id="subtotal">395</span>.00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Envío:</span>
+                        <span class="text-success">GRATIS</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Total:</span>
+                        <span>$<span id="total">395</span>.00</span>
+                    </div>
+                </div>
+
+                <div class="alert alert-info small mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Nota:</strong> Este es un sistema de pago simulado con fines demostrativos. No se procesará ningún cargo real.
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-form">
+                <div class="text-center mb-4">
+                    <div class="secure-badge">
+                        <i class="fas fa-shield-alt text-success"></i>
+                        <span>Pago 100% Seguro</span>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold mb-3">Información de Pago</h5>
+
+                <form id="paymentForm">
+                    <!-- Nombre en la tarjeta -->
+                    <div class="mb-3">
+                        <label for="cardName" class="form-label">Nombre en la tarjeta</label>
+                        <input type="text" class="form-control" id="cardName" placeholder="Juan Pérez" required>
+                    </div>
+
+                    <!-- Número de tarjeta -->
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Número de tarjeta</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                            <span class="input-group-text">
+                                <i class="fab fa-cc-visa fa-lg"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Fecha de expiración -->
+                        <div class="col-md-6 mb-3">
+                            <label for="cardExpiry" class="form-label">Fecha de expiración</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA" maxlength="5" required>
+                        </div>
+
+                        <!-- CVV -->
+                        <div class="col-md-6 mb-3">
+                            <label for="cardCVV" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cardCVV" placeholder="123" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                    </div>
+
+                    <!-- Dirección de envío -->
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Dirección de envío</label>
+                        <textarea class="form-control" id="address" rows="2" placeholder="Calle, colonia, ciudad" required></textarea>
+                    </div>
+
+                    <!-- Términos -->
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <label class="form-check-label small" for="terms">
+                            Acepto los términos y condiciones y la política de privacidad
+                        </label>
+                    </div>
+
+                    <!-- Botón de pago -->
+                    <button type="submit" class="btn btn-paypal w-100">
+                        <i class="fas fa-lock me-2"></i>Pagar Ahora - $<span id="btnTotal">395</span>.00
+                    </button>
+
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Tus datos están protegidos con encriptación SSL
+                        </small>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a href="galeria.html" class="btn btn-link">
+                            <i class="fas fa-arrow-left me-2"></i>Volver a la galería
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Trusted Badges -->
+        <div class="text-center mt-4">
+            <p class="text-muted small mb-2">Métodos de pago aceptados:</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <i class="fab fa-cc-visa fa-2x text-muted"></i>
+                <i class="fab fa-cc-mastercard fa-2x text-muted"></i>
+                <i class="fab fa-cc-amex fa-2x text-muted"></i>
+                <i class="fab fa-cc-paypal fa-2x text-primary"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Procesando tu pago...</h3>
+            <p>Por favor espera un momento</p>
+        </div>
+    </div>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-content">
+            <div class="success-checkmark">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1 class="mb-3">¡Pago Exitoso!</h1>
+            <h4 class="mb-4">Tu pedido ha sido confirmado</h4>
+            <p class="mb-4">Recibirás un correo de confirmación en breve</p>
+            <div class="mb-4">
+                <p class="small">Número de orden: <strong>#CN-<span id="orderNumber"></span></strong></p>
+            </div>
+            <button onclick="window.location.href='index.html'" class="btn btn-light btn-lg">
+                <i class="fas fa-home me-2"></i>Volver al Inicio
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Obtener parámetros de URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const producto = urlParams.get('producto') || 'Comedor 4 Sillas';
+        const precio = urlParams.get('precio') || '395';
+
+        // Actualizar información del producto
+        document.getElementById('productName').textContent = producto;
+        document.getElementById('productPrice').textContent = precio;
+        document.getElementById('subtotal').textContent = precio;
+        document.getElementById('total').textContent = precio;
+        document.getElementById('btnTotal').textContent = precio;
+
+        // Formateo automático de número de tarjeta
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Formateo automático de fecha de expiración
+        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Solo números en CVV
+        document.getElementById('cardCVV').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Procesar pago
+        document.getElementById('paymentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Obtener datos del formulario
+            const nombre = document.getElementById('cardName').value;
+            const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+            const email = document.getElementById('email').value;
+            const direccion = document.getElementById('address').value;
+
+            // Generar número de orden
+            const orderNumber = Math.floor(100000 + Math.random() * 900000);
+
+            // Mostrar loading
+            document.getElementById('loadingOverlay').classList.add('show');
+
+            // Preparar datos para enviar al servidor
+            const orderData = {
+                orderNumber: orderNumber,
+                producto: producto,
+                precio: precio,
+                email: email,
+                nombre: nombre,
+                direccion: direccion,
+                cardNumber: cardNumber,
+                fecha: new Date().toISOString()
+            };
+
+            // Guardar en localStorage
+            localStorage.setItem('lastOrder', JSON.stringify(orderData));
+
+            try {
+                // Simular procesamiento inicial (1 segundo)
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Enviar correo de confirmación
+                const response = await fetch('http://localhost:3000/api/send-confirmation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                const result = await response.json();
+
+                // Esperar un poco más para que se procese
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // Ocultar loading
+                document.getElementById('loadingOverlay').classList.remove('show');
+
+                // Mostrar número de orden
+                document.getElementById('orderNumber').textContent = orderNumber;
+
+                // Mostrar success
+                document.getElementById('successOverlay').classList.add('show');
+
+                // Crear confetti
+                createConfetti();
+
+                if (result.success) {
+                    console.log('✅ Correo enviado exitosamente');
+                    console.log('📧 Email:', email);
+                    console.log('📦 Orden:', orderNumber);
+                } else {
+                    console.warn('⚠️ El pago se procesó pero hubo un problema al enviar el correo');
+                    console.log('Error:', result.message);
+                }
+
+            } catch (error) {
+                console.error('❌ Error al procesar el pago:', error);
+                
+                // Ocultar loading
+                document.getElementById('loadingOverlay').classList.remove('show');
+
+                // Mostrar success de todos modos (el pago es simulado)
+                document.getElementById('orderNumber').textContent = orderNumber;
+                document.getElementById('successOverlay').classList.add('show');
+                createConfetti();
+
+                // Mostrar advertencia en consola
+                console.warn('⚠️ El pago se procesó correctamente pero no se pudo conectar con el servidor de correos.');
+                console.log('Asegúrate de que el servidor Node.js esté corriendo en http://localhost:3000');
+                console.log('Para iniciar el servidor: npm install && npm start');
+            }
+        });
+
+        // Crear efecto de confetti
+        function createConfetti() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+            const successOverlay = document.getElementById('successOverlay');
+
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    successOverlay.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 30);
+            }
+        }
+
+        // Console log
+        console.log('Sistema de pago PayPal simulado cargado');
+        console.log('Producto:', producto);
+        console.log('Precio: $' + precio);
+    </script>
+</body>
+</html>

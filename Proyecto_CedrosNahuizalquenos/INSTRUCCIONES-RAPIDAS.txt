@@ -1,0 +1,302 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║        🪵  CEDROS NAHUIZALQUEÑOS - SITIO WEB DE COMERCIO ELECTRÓNICO  🪵       ║
+║                                                                               ║
+║             Universidad de El Salvador - Comercio Electrónico T.E.D          ║
+║                              Ciclo II-2025                                    ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 INICIO RÁPIDO - 5 PASOS
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 1: EXTRAER ARCHIVOS
+   └─ Descomprime el archivo "cedros-nahuizalquenos-sitio-web.zip"
+   └─ Coloca todo en una carpeta llamada "cedros-nahuizalquenos"
+
+PASO 2: VERIFICAR ESTRUCTURA
+   Tu carpeta debe verse así:
+   
+   cedros-nahuizalquenos/
+   ├── index.html
+   ├── galeria.html
+   ├── creadores.html
+   ├── contacto.html
+   ├── README.md
+   ├── GUIA-INSTALACION.html
+   ├── RESUMEN-EJECUTIVO.md
+   ├── css/
+   │   └── styles.css
+   └── js/
+       └── script.js
+
+PASO 3: CREAR CARPETA DE IMÁGENES
+   └─ Crea una carpeta llamada "images" en la raíz
+   └─ Dentro de "images" crea 3 subcarpetas:
+      ├── productos/
+      ├── equipo/
+      └── otros/
+
+PASO 4: ABRIR EL SITIO
+   └─ Haz doble clic en "index.html"
+   └─ El sitio se abrirá en tu navegador
+
+PASO 5: PERSONALIZAR
+   └─ Agrega las fotos reales de productos
+   └─ Agrega las fotos del equipo
+   └─ Actualiza información de contacto
+   └─ Agrega el mapa de Google Maps
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📁 ARCHIVOS INCLUIDOS
+═══════════════════════════════════════════════════════════════════════════════
+
+PÁGINAS HTML (4)
+   ✓ index.html .............. Página principal (Home)
+   ✓ galeria.html ............ Galería de 12 productos con filtros
+   ✓ creadores.html .......... Página del equipo (4 miembros)
+   ✓ contacto.html ........... Formulario de contacto completo
+
+ESTILOS (1)
+   ✓ css/styles.css .......... 526 líneas de CSS personalizado
+
+SCRIPTS (1)
+   ✓ js/script.js ............ 388 líneas de JavaScript funcional
+
+DOCUMENTACIÓN (3)
+   ✓ README.md ............... Documentación técnica completa
+   ✓ GUIA-INSTALACION.html ... Guía visual interactiva
+   ✓ RESUMEN-EJECUTIVO.md .... Resumen del proyecto
+
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ REQUISITOS CUMPLIDOS (7/7)
+═══════════════════════════════════════════════════════════════════════════════
+
+[✓] Diseño del sitio web ............... Moderno y profesional
+[✓] Menú de navegación ................. Superior fijo, responsive
+[✓] Galería de imágenes ................ 12 productos con filtros
+[✓] Página de creadores ................ 4 miembros con info completa
+[✓] Formulario de contacto ............. Validación completa
+[✓] Responsive design .................. PC, Tablet, Smartphone
+[✓] Elementos adecuados ................ HTML5, CSS3, JavaScript
+
+
+═══════════════════════════════════════════════════════════════════════════════
+⚠️  PENDIENTE DE PERSONALIZAR
+═══════════════════════════════════════════════════════════════════════════════
+
+CRÍTICO (Obligatorio)
+   [ ] Fotografías de los 12 productos (comedores)
+   [ ] Número de teléfono real (reemplazar +503 XXXX-XXXX)
+   [ ] Correo electrónico real (reemplazar info@cedrosnahuizalquenos.com)
+
+IMPORTANTE (Muy recomendado)
+   [ ] Fotos de los 4 miembros del equipo
+   [ ] Enlaces a redes sociales reales (Facebook, Instagram, WhatsApp)
+   [ ] Mapa de Google Maps con ubicación exacta
+
+OPCIONAL (Mejoras)
+   [ ] Logo de la empresa
+   [ ] Imagen de fondo para hero section
+   [ ] Videos de productos
+   [ ] Testimonios de clientes
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🎯 FUNCIONALIDADES PRINCIPALES
+═══════════════════════════════════════════════════════════════════════════════
+
+PÁGINA PRINCIPAL (index.html)
+   • Hero section con call-to-action
+   • Información de la empresa
+   • Misión y visión
+   • 3 productos destacados con precios
+   • Características de personalización
+   • Cobertura geográfica
+   • Enlaces a redes sociales
+
+GALERÍA (galeria.html)
+   • 12 productos organizados en tarjetas
+   • Filtros por categoría (4, 6, 8 sillas, otros)
+   • Información de cada producto
+   • Precios visibles
+   • Sistema de filtrado con JavaScript
+   • Botones de "Ver detalles"
+
+CREADORES (creadores.html)
+   • 4 tarjetas de miembros del equipo
+   • Foto, nombre, carnet, rol
+   • Descripción de responsabilidades
+   • Enlaces a redes sociales
+   • Información del proyecto académico
+   • Datos de la universidad
+
+CONTACTO (contacto.html)
+   • Formulario con 8 campos
+   • Validación en tiempo real
+   • Selección de departamento
+   • Selección de producto
+   • Preferencia de color
+   • Información de contacto directo
+   • Horarios de atención
+   • Preguntas frecuentes (FAQ)
+   • Placeholder para mapa
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🌐 TECNOLOGÍAS UTILIZADAS
+═══════════════════════════════════════════════════════════════════════════════
+
+   HTML5 ..................... Estructura semántica
+   CSS3 ...................... Estilos personalizados, Grid, Flexbox
+   JavaScript (ES6+) ......... Interactividad y validaciones
+   Bootstrap 5.3.0 ........... Framework CSS responsive
+   Font Awesome 6.4.0 ........ Iconos profesionales
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📱 RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════════════════════════════════════
+
+   Desktop ........ > 1200px .... Layout completo, 3-4 columnas
+   Laptop ......... 992-1199px .. 2-3 columnas
+   Tablet ......... 768-991px ... 2 columnas, menú colapsable
+   Smartphone ..... < 768px ..... 1 columna, menú hamburguesa
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🔧 PERSONALIZACIÓN DE IMÁGENES
+═══════════════════════════════════════════════════════════════════════════════
+
+PRODUCTOS (galeria.html)
+   
+   Busca esto:
+   <div class="placeholder-img-gallery">
+       <i class="fas fa-chair fa-4x text-white"></i>
+   </div>
+   
+   Reemplaza con:
+   <img src="images/productos/comedor-4-sillas-cafe.jpg" 
+        class="img-fluid" 
+        alt="Comedor 4 Sillas Café">
+
+EQUIPO (creadores.html)
+   
+   Busca esto:
+   <div class="placeholder-team-img">
+       <i class="fas fa-user fa-5x text-white"></i>
+   </div>
+   
+   Reemplaza con:
+   <img src="images/equipo/diego-castillo.jpg" 
+        class="img-fluid" 
+        alt="Diego Pablo Castillo">
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📞 ACTUALIZAR INFORMACIÓN DE CONTACTO
+═══════════════════════════════════════════════════════════════════════════════
+
+En TODOS los archivos HTML, busca y reemplaza:
+
+   Teléfono:
+   Busca: +503 XXXX-XXXX
+   Reemplaza: [Tu número real]
+
+   Email:
+   Busca: info@cedrosnahuizalquenos.com
+   Reemplaza: [Tu email real]
+
+   WhatsApp:
+   Busca: https://wa.me/503XXXXXXXX
+   Reemplaza: https://wa.me/503[TuNumero]
+
+   Facebook:
+   Busca: https://facebook.com/cedrosnahuizalquenos
+   Reemplaza: [Tu URL de Facebook]
+
+   Instagram:
+   Busca: https://instagram.com/cedrosnahuizalquenos
+   Reemplaza: [Tu URL de Instagram]
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🗺️  AGREGAR MAPA DE GOOGLE MAPS
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Ve a: https://www.google.com/maps
+2. Busca: "Nahuizalco, Sonsonate, El Salvador"
+3. Haz clic en: "Compartir" → "Insertar un mapa"
+4. Copia el código iframe
+5. En contacto.html, busca: <div class="placeholder-map">
+6. Reemplaza todo el div con el iframe de Google Maps
+
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ CHECKLIST FINAL (Antes de entregar)
+═══════════════════════════════════════════════════════════════════════════════
+
+   [ ] Archivos organizados correctamente
+   [ ] Carpeta images/ creada con subcarpetas
+   [ ] Imágenes de productos agregadas (12 fotos)
+   [ ] Fotos del equipo agregadas (4 fotos)
+   [ ] Teléfono actualizado en todas las páginas
+   [ ] Email actualizado en todas las páginas
+   [ ] Enlaces de redes sociales actualizados
+   [ ] Mapa de Google Maps agregado
+   [ ] Sitio probado en Chrome
+   [ ] Sitio probado en Firefox
+   [ ] Sitio probado en móvil
+   [ ] Sitio probado en tablet
+   [ ] Formulario funciona correctamente
+   [ ] Filtros de galería funcionan
+   [ ] Navegación funciona en todas las páginas
+   [ ] No hay errores en consola del navegador
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🎓 EQUIPO DE DESARROLLO
+═══════════════════════════════════════════════════════════════════════════════
+
+   Diego Pablo Castillo Acevedo ........ CA21016 ..... Desarrollador Frontend
+   Adriana Estefany Fuentes Olmedo ..... FO21001 ..... Analista de Negocio
+   Kevin Armando Grande Chavez ......... GC20029 ..... Desarrollador Backend
+   Michelle Alexandra Zelada Flores .... ZF21001 ..... Gestora de Proyecto
+
+   Catedrática: Licda. Patricia Azucena Rivas Opico
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📚 RECURSOS Y AYUDA
+═══════════════════════════════════════════════════════════════════════════════
+
+   Documentación Completa ......... Abre README.md
+   Guía Visual de Instalación ..... Abre GUIA-INSTALACION.html
+   Resumen del Proyecto ........... Abre RESUMEN-EJECUTIVO.md
+   
+   Bootstrap Docs ................. https://getbootstrap.com/docs/5.3/
+   Font Awesome Icons ............. https://fontawesome.com/icons
+   Google Maps Embed .............. https://www.google.com/maps
+   Optimizar Imágenes ............. https://tinypng.com/
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🎉 ¡TODO LISTO!
+═══════════════════════════════════════════════════════════════════════════════
+
+Tu sitio web está completo y funcional. Solo necesitas:
+   1. Agregar las imágenes reales
+   2. Actualizar información de contacto
+   3. ¡Y estará listo para usar!
+
+Desarrollado con ❤️ por el equipo de Cedros Nahuizalqueños
+Universidad de El Salvador - 2025
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                           ¡ÉXITO CON TU PROYECTO!
+═══════════════════════════════════════════════════════════════════════════════
